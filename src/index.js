@@ -4,7 +4,7 @@ import {HashRouter, Routes, Route} from "react-router-dom";
 import './index.css';
 import App from './App';
 import NavBar from './components/NavBar'
-// import Formulario from './components/Formulario/Formulario'
+import Formulario from './components/Formulario/Formulario'
 import BuscarImg from './components/Buscar-img/Buscar-img'
 import CarroCompra from './components/CarroCompras/CarroCompras'
 import InteresCompuesto from './components/Interes-compuesto/IndexInteres'
@@ -19,7 +19,7 @@ root.render(
       <NavBar />
         <Routes>
           <Route path="*" element={<App/>} />
-          {/* <Route path="/Formulario" element={<Formulario/>} /> */}
+          <Route path="/Formulario" element={<Formulario/>} />
           <Route path="/Buscar-img" element={<BuscarImg/>} />
           <Route path="/CarroCompras" element={<CarroCompra/>} />
           <Route path="/IndexInteres" element={<InteresCompuesto/>} />
