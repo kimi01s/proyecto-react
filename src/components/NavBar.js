@@ -27,12 +27,12 @@ const NavBar =()=>{
                             className={({ isActive }) => (isActive ? activeClassName : ClassName)}
                             to="Buscar-img">Buscar Imágenes</NavLink>
                         </li>
-                        {/* <li className="nav-item">
+                        <li className="nav-item">
                             <NavLink 
                             className={({ isActive }) => (isActive ? activeClassName : ClassName)}
                             to="IndexInteres">Interés Compuesto</NavLink>
                         </li>
-                        <li className="nav-item">
+                        {/* <li className="nav-item">
                             <NavLink 
                             className={({ isActive }) => (isActive ? activeClassName : ClassName)}
                             to="Formulario">Formulario</NavLink>

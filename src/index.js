@@ -5,9 +5,9 @@ import './index.css';
 import App from './App';
 import NavBar from './components/NavBar'
 // import Formulario from './components/Formulario/Formulario'
-import CarroCompra from './components/CarroCompras/CarroCompras'
 import BuscarImg from './components/Buscar-img/Buscar-img'
-// import InteresCompuesto from './components/Interes-compuesto/IndexInteres'
+import CarroCompra from './components/CarroCompras/CarroCompras'
+import InteresCompuesto from './components/Interes-compuesto/IndexInteres'
 import reportWebVitals from './reportWebVitals';
 import '/node_modules/bootstrap/dist/css/bootstrap.css'
 import '/node_modules/bootstrap/dist/js/bootstrap.js'
@@ -22,7 +22,7 @@ root.render(
           {/* <Route path="/Formulario" element={<Formulario/>} /> */}
           <Route path="/Buscar-img" element={<BuscarImg/>} />
           <Route path="/CarroCompras" element={<CarroCompra/>} />
-          {/* <Route path="/IndexInteres" element={<InteresCompuesto/>} /> */}
+          <Route path="/IndexInteres" element={<InteresCompuesto/>} />
         </Routes>
     </HashRouter>
   </React.StrictMode>
