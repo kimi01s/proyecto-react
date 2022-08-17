@@ -17,12 +17,12 @@ const NavBar =()=>{
                             className={({ isActive }) => (isActive ? activeClassName : ClassName)}
                             to="/">Inicio</NavLink>
                         </li>
-                        {/* <li className="nav-item">
+                        <li className="nav-item">
                             <NavLink 
                             className={({ isActive }) => (isActive ? activeClassName : ClassName)}
                             to="CarroCompras">Productos</NavLink>
                         </li>
-                        <li className="nav-item">
+                        {/* <li className="nav-item">
                             <NavLink 
                             className={({ isActive }) => (isActive ? activeClassName : ClassName)}
                             to="Buscar-img">Buscar Imágenes</NavLink>

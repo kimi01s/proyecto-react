@@ -1,0 +1,19 @@
+.Bubble{
+    left: 12px;
+    top:20px;
+}
+
+@media screen and (max-width: 768px) {
+    .Bubble{
+        left: 12px;
+        top:20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .Bubble{
+        left: 0px;
+        right: 55px;
+        top:45px;
+    }
+}

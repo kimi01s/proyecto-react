@@ -27,7 +27,7 @@ function BuscarPokemon() {
             <div className="form shadow rounded p-2">
               <div className="row">
               <div className="col-lg-5">
-                <h1 className="text-center">Busca tu Pokemon</h1>
+                <h1 className="text-center">Busca tu pokemon</h1>
               </div>
               <div className="col-lg-2 offset-lg-5">
                 <h1 className="d-none lead text-center bg-info shadow rounded" id="mostrar">Pokemon no encontrado</h1>
