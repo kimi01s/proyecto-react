@@ -1,13 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import {BrowserRouter, Routes, Route} from "react-router-dom";
 import './index.css';
 import App from './App';
+import NavBar from './components/NavBar'
 import reportWebVitals from './reportWebVitals';
+import '/node_modules/bootstrap/dist/css/bootstrap.css'
+import '/node_modules/bootstrap/dist/js/bootstrap.js'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <NavBar />
+        <Routes>
+          <Route path="*" element={<App/>} />
+          {/* <Route path="/Formulario" element={<Formulario/>} /> */}
+          {/* <Route path="/Buscar-img" element={<BuscarImg/>} /> */}
+          {/* <Route path="/CarroCompras" element={<CarroCompra/>} /> */}
+          {/* <Route path="/IndexInteres" element={<InteresCompuesto/>} /> */}
+        </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
