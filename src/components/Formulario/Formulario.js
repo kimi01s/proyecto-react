@@ -2,17 +2,19 @@ import { Formik, Form} from "formik"
 import TextForm from "./TextForm"
 import SelectForm from "./SelectForm"
 import SendBtn from "./SendBtn"
+import Listaobj from "./Listaobj"
 import * as Yup from 'yup'
 import "./Formulario.css"
+import {useState} from 'react'
 
 
 const Formulario = () =>{
-    
+    const [lista, setLista] = useState([])
     return(
       <div className="container">
-        <h1>Formulario</h1>
+        <h1 className="text-center p-4">Formulario</h1>
         <div className="row">
-          <div className="divControl">
+          <div className="divControl col-lg-6">
             <Formik
             initialValues={{
               name:'',
@@ -22,7 +24,9 @@ const Formulario = () =>{
            }}
             onSubmit={(values,{resetForm})=>{
                 console.log(values)
+                setLista([...lista,values])
                 resetForm()
+                
             }}
             validationSchema={Yup.object({
               name: Yup.string().required('Requerido'),
@@ -45,8 +49,12 @@ const Formulario = () =>{
               </Form>
             </Formik>
           </div>
+          <div className="col-lg-6 pe-3">
+            <h1 className="lead">lista ingresados:</h1>
+                  <Listaobj valores={lista}/>
+            </div>
+          </div>
         </div>
-      </div>
             
     )
 }

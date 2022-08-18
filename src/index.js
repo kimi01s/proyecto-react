@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import {HashRouter, Routes, Route} from "react-router-dom";
 import './index.css';
 import App from './App';
+import Footer from './Footer'
 import NavBar from './components/NavBar'
 import Formulario from './components/Formulario/Formulario'
 import BuscarImg from './components/Buscar-img/Buscar-img'
@@ -12,11 +13,12 @@ import reportWebVitals from './reportWebVitals';
 import '/node_modules/bootstrap/dist/css/bootstrap.css'
 import '/node_modules/bootstrap/dist/js/bootstrap.js'
 
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <HashRouter>
-      <NavBar />
+      <NavBar/>
         <Routes>
           <Route path="*" element={<App/>} />
           <Route path="/Formulario" element={<Formulario/>} />
@@ -25,6 +27,7 @@ root.render(
           <Route path="/IndexInteres" element={<InteresCompuesto/>} />
         </Routes>
     </HashRouter>
+    <Footer/>
   </React.StrictMode>
 );
 
