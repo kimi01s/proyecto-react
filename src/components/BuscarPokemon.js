@@ -27,7 +27,7 @@ function BuscarPokemon() {
             <div className="form shadow rounded p-2">
               <div className="row">
                 <div className="col-lg-5">
-                  <h1 className="text-center">Busca tu pokemon</h1>
+                  <h1 className="text-center display-6">Busca tu pokemon</h1>
                 </div>
                 <div className="col-lg-2 offset-lg-5">
                   <h1 className="d-none lead text-center bg-info shadow rounded" id="mostrar">Pokemon no encontrado</h1>
@@ -36,14 +36,17 @@ function BuscarPokemon() {
                 <p className="lead">Ingresa nombre o número del pokemon</p>
                 <div className="bg-info">
                 <p>Pokemones mayores a 898 no se encuentra su imagen,
-                además solo se encuentra hasta el Pokemon N°906</p>
+                además solo se encuentra hasta el Pokemon N°905</p>
                 </div>
               <Form>
                 <Field className="form-control" type='text' placeholder="Ej: Charmander o 4" name='searchPokemon'/>
               </Form>
             </div>
           </Formik>
-          <TarjetaPokemon pokemon = {pokemon}/>
+          <div className="tarjeta-pokemon mt-3" id="ta-pokemon">
+            <div className="container">
+              <TarjetaPokemon pokemon={pokemon} />
+              </div></div>
             
         </div>
     )
