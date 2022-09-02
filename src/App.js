@@ -2,7 +2,7 @@ import BuscarPokemon from './components/BuscarPokemon'
 function App() {
   
     return(
-        <div className='container'>
+        <div className='container bg-light'>
           <div className='row'>
             <BuscarPokemon />
           </div>

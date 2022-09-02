@@ -20,108 +20,117 @@ const TarjetaPokemon = ({ pokemon })=>{
 
     }
     if(typeof pokemon.id === 'undefined') {
-        return(
-            <div className='row'>
-                <div className='col-lg-4 col-md-5 p-0'>
-
+       return (
+        <div className="row py-2">
+            <div className='col-lg-4 col-md-4 col-12'></div>
+                <div className="col-lg-8 col-md-8 col-12">
+                <h1 className="text-center">Lista Pokemones agregados</h1>
+                <div className='table-responsive-md'>
+                    <ListaPokemonesAgregados ListaPokemones = {ListaPokemones} />
                 </div>
-                <div className='col-lg-8 col-md-7 bg-info shadow rounded pb-4'>
-                <h1 className='display-6'>Pokemones agregados:</h1>
-                <ListaPokemonesAgregados ListaPokemones = {ListaPokemones} />
-            </div> 
             </div>
-        )
+        </div>
+        
+       )
     }
-    // console.log(pokemon)
     
     return(
-        <div className='row'>
-            <div className='col-lg-4 col-md-5 p-0'>
-                {pokemon.types[0].type.name === 'electric' ? 
-                        <div className="card pb-3 bg-warning" style={{width:'18rem'}}>
-                        <img src={pokemon.sprites.front_default} className="img-pokemon" alt={pokemon.name} />
-                        <div className="card-body shadow rounded mx-3" style={{backgroundColor:'white'}}>
-                            <ul className="list-group list-group-flush align-items-center">
-                                <li className="list-group-item lead">Nombre : {pokemon.name}</li>
-                                <li className="list-group-item lead">Tipo : {pokemon.types[0].type.name}</li>
-                                <li className="list-group-item lead">Número : {pokemon.id}</li>
-                            </ul>
-                        </div>
-                        <button className='btn btn-warning btn-sm mt-3'
-                        onClick={()=>{AgregarListaPokemon({pokemon})}}>Agregar a la Lista</button>
-                    </div>:
-                    pokemon.types[0].type.name === 'fire' ?
-                    <div className="card pb-3 bg-danger" style={{width:'18rem'}}>
-                        <img src={pokemon.sprites.front_default} className="img-pokemon" alt={pokemon.name} />
-                        <div className="card-body shadow rounded mx-3" style={{backgroundColor:'white'}}>
-                            <ul className="list-group list-group-flush align-items-center">
-                                <li className="list-group-item lead">Nombre : {pokemon.name}</li>
-                                <li className="list-group-item lead">Tipo : {pokemon.types[0].type.name}</li>
-                                <li className="list-group-item lead">Número : {pokemon.id}</li>
-                            </ul>
-                        </div>
-                        <button className='btn btn-danger btn-sm mt-3'
-                        onClick={()=>{AgregarListaPokemon({pokemon})}}>Agregar a la Lista</button>
-                    </div>:
-                    pokemon.types[0].type.name === 'water' ?
-                    <div className="card pb-3 bg-primary" style={{width:'18rem'}}>
-                        <img src={pokemon.sprites.front_default} className="img-pokemon" alt={pokemon.name} />
-                        <div className="card-body shadow rounded mx-3" style={{backgroundColor:'white'}}>
-                            <ul className="list-group list-group-flush align-items-center">
-                                <li className="list-group-item lead">Nombre : {pokemon.name}</li>
-                                <li className="list-group-item lead">Tipo : {pokemon.types[0].type.name}</li>
-                                <li className="list-group-item lead">Número : {pokemon.id}</li>
-                            </ul>
-                        </div>
-                        <button className='btn btn-primary btn-sm mt-3'
-                        onClick={()=>{AgregarListaPokemon({pokemon})}}>Agregar a la Lista</button>
-                    </div>:
-                    pokemon.types[0].type.name === 'grass' ? //N°45
-                    <div className="card pb-3 bg-success" style={{width:'18rem'}}>
-                        <img src={pokemon.sprites.front_default} className="img-pokemon" alt={pokemon.name} />
-                        <div className="card-body shadow rounded mx-3" style={{backgroundColor:'white'}}>
-                            <ul className="list-group list-group-flush align-items-center">
-                                <li className="list-group-item lead" name='name'>Nombre : {pokemon.name}</li>
-                                <li className="list-group-item lead" name='type'>Tipo : {pokemon.types[0].type.name}</li>
-                                <li className="list-group-item lead" name='number'>Número : {pokemon.id}</li>
-                            </ul>
-                        </div>
-                        <button className='btn btn-success btn-sm mt-3'
-                        onClick={()=>{AgregarListaPokemon({pokemon})}}>Agregar a la Lista</button>
-                    </div>:
-                    pokemon.types[0].type.name === 'ground' ?
-                    <div className="card pb-3" style={{width:'18rem', backgroundColor:'#4a413b'}}>
-                        <img src={pokemon.sprites.front_default} className="img-pokemon" alt={pokemon.name} />
-                        <div className="card-body shadow rounded mx-3" style={{backgroundColor:'white'}}>
-                            <ul className="list-group list-group-flush align-items-center">
-                                <li className="list-group-item lead">Nombre : {pokemon.name}</li>
-                                <li className="list-group-item lead">Tipo : {pokemon.types[0].type.name}</li>
-                                <li className="list-group-item lead">Número : {pokemon.id}</li>
-                            </ul>
-                        </div>
-                        <button className='btn btn-sm mt-3' style={{backgroundColor:'#4a413b'}}
-                        onClick={()=>{AgregarListaPokemon({pokemon})}}>Agregar a la Lista</button>
-                    </div>:
-                    <div className="card pb-3" style={{width:'18rem', backgroundColor:'#006360'}}>
-                    <img src={pokemon.sprites.front_default} className="img-pokemon" alt={pokemon.name} />
+        <div className='row py-2'>
+            <div className="col-xl-4 col-lg-4 col-md-4 col-12 offset-xl-0 offset-lg-0 offset-md-3">
+                {pokemon.types[0].type.name === 'electric' ?
+                <div className="card bg-warning" style={{width:'18rem'}}>
+                    <img className="card-img-top w-50 rounded-circle img-pokemon" alt={pokemon.name}
+                    src={pokemon.sprites.front_default}/>
                     <div className="card-body shadow rounded mx-3" style={{backgroundColor:'white'}}>
-                        <ul className="list-group list-group-flush align-items-center">
-                            <li className="list-group-item lead">Nombre : {pokemon.name}</li>
-                            <li className="list-group-item lead">Tipo : {pokemon.types[0].type.name}</li>
-                            <li className="list-group-item lead">Número : {pokemon.id}</li>
+                        <ul className="list-group align-items-center">
+                            <li className="list-group-item lead border-0">Nombre : {pokemon.name}</li>
+                            <li className="list-group-item lead border-0">Tipo : {pokemon.types[0].type.name}</li>
+                            <li className="list-group-item lead border-0">Número : {pokemon.id}</li>
                         </ul>
                     </div>
-                    <button className='btn btn-sm mt-3' style={{backgroundColor:'#006360'}}
-                        onClick={()=>{AgregarListaPokemon({pokemon})}}>Agregar a la Lista</button>
+                    <div className="card-footer d-grid gap-2 mt-2">
+                        <button className='btn btn-warning'
+                        onClick={()=>{AgregarListaPokemon({pokemon})}}
+                        >agregar a la lista</button>
+                    </div>
+                </div>:
+                pokemon.types[0].type.name === 'fire' ?
+                <div className="card bg-danger" style={{width:'18rem'}}>
+                    <img className="card-img-top w-50 rounded-circle img-pokemon" alt={pokemon.name}
+                    src={pokemon.sprites.front_default}/>
+                    <div className="card-body shadow rounded mx-3" style={{backgroundColor:'white'}}>
+                        <ul className="list-group align-items-center">
+                            <li className="list-group-item lead border-0">Nombre : {pokemon.name}</li>
+                            <li className="list-group-item lead border-0">Tipo : {pokemon.types[0].type.name}</li>
+                            <li className="list-group-item lead border-0">Número : {pokemon.id}</li>
+                        </ul>
+                    </div>
+                    <div className="card-footer d-grid gap-2 mt-2">
+                        <button className='btn btn-danger'
+                        onClick={()=>{AgregarListaPokemon({pokemon})}}
+                        >agregar a la lista</button>
+                    </div>
+                </div>:
+                pokemon.types[0].type.name === 'water' ?
+                <div className="card bg-info" style={{width:'18rem'}}>
+                    <img className="card-img-top w-50 rounded-circle img-pokemon" alt={pokemon.name}
+                    src={pokemon.sprites.front_default}/>
+                    <div className="card-body shadow rounded mx-3" style={{backgroundColor:'white'}}>
+                        <ul className="list-group align-items-center">
+                            <li className="list-group-item lead border-0">Nombre : {pokemon.name}</li>
+                            <li className="list-group-item lead border-0">Tipo : {pokemon.types[0].type.name}</li>
+                            <li className="list-group-item lead border-0">Número : {pokemon.id}</li>
+                        </ul>
+                    </div>
+                    <div className="card-footer d-grid gap-2 mt-2">
+                        <button className='btn btn-info'
+                        onClick={()=>{AgregarListaPokemon({pokemon})}}
+                        >agregar a la lista</button>
+                    </div>
+                </div>:
+                pokemon.types[0].type.name === 'grass' ?
+                <div className="card bg-success" style={{width:'18rem'}}>
+                    <img className="card-img-top w-50 rounded-circle img-pokemon" alt={pokemon.name}
+                    src={pokemon.sprites.front_default}/>
+                    <div className="card-body shadow rounded mx-3" style={{backgroundColor:'white'}}>
+                        <ul className="list-group align-items-center">
+                            <li className="list-group-item lead border-0">Nombre : {pokemon.name}</li>
+                            <li className="list-group-item lead border-0">Tipo : {pokemon.types[0].type.name}</li>
+                            <li className="list-group-item lead border-0">Número : {pokemon.id}</li>
+                        </ul>
+                    </div>
+                    <div className="card-footer d-grid gap-2 mt-2">
+                        <button className='btn btn-success'
+                        onClick={()=>{AgregarListaPokemon({pokemon})}}
+                        >agregar a la lista</button>
+                    </div>
+                </div>:
+                <div className="card bg-secondary" style={{width:'18rem'}}>
+                    <img className="card-img-top w-50 rounded-circle img-pokemon" alt={pokemon.name}
+                    src={pokemon.sprites.front_default}/>
+                    <div className="card-body shadow rounded mx-3" style={{backgroundColor:'white'}}>
+                        <ul className="list-group align-items-center">
+                            <li className="list-group-item lead border-0">Nombre : {pokemon.name}</li>
+                            <li className="list-group-item lead border-0">Tipo : {pokemon.types[0].type.name}</li>
+                            <li className="list-group-item lead border-0">Número : {pokemon.id}</li>
+                        </ul>
+                    </div>
+                    <div className="card-footer d-grid gap-2 mt-2">
+                        <button className='btn btn-secondary'
+                        onClick={()=>{AgregarListaPokemon({pokemon})}}
+                        >agregar a la lista</button>
+                    </div>
                 </div>
-                }
-                
-            </div> 
-            <div className='col-lg-8 col-md-7 bg-info shadow rounded pb-4'>
-                <h1 className='display-6'>Pokemones agregados:</h1>
-                <ListaPokemonesAgregados ListaPokemones = {ListaPokemones} />
-            </div> 
+            }
         </div>
+            <div className="col-lg-8 col-md-12 col-12">
+                <h1 className="text-center">Lista Pokemones agregados</h1>
+                <div className='table-responsive-md'>
+                    <ListaPokemonesAgregados ListaPokemones = {ListaPokemones} />
+                </div>
+            </div>
+        </div>
+        
     )
 }
 
