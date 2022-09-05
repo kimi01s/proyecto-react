@@ -2,25 +2,33 @@ import { Formik, Form, Field } from "formik"
 import { useState } from "react"
 import './SearchPokemon.css'
 import TarjetaPokemon from './TarjetaPokemon'
+import bootstrap from "/node_modules/bootstrap/dist/js/bootstrap.js"
 
 function BuscarPokemon() {
   const [pokemon, setPokemon] = useState([])
+
+  const AlertPokemon = (message, type)=>{
+    var wrapper = document.createElement("div")
+    wrapper.id = "ContainerAlert"
+    wrapper.innerHTML =  '<div class="alert alert-'+type+' alert-dismissible fade show" role="alert">'+message+
+    '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
+    document.getElementById("alertPokemon").append(wrapper)
+  }
     return(
         <div className="col-lg-12 pt-3">
           <div className="row bg-light shadow rounded pt-3">
-            <div className="col-lg-12">
-                <h1 className="text-center">Busca tu Pokemon</h1>
+            <div className="col-lg-9">
+                <h1 className="pb-lg-5">Busca tu Pokemon</h1>
             </div>
-            <div className="col-lg-10">
+            <div className="col-lg-3" id="alertPokemon"></div>
+            <div className="col-lg-12">
               <div className="bg-info">
                 <p className="text-center lead">Pokemones mayores a 898 no se 
                 encuentra su imagen, además solo se encuentra hasta el Pokemon N°905</p>
               </div>
             </div>
             <div className="col-lg-2">
-              <div className="bg-info d-none" id="mostrar">
-                <h1 className="text-center lead">Pokemon no encontrado</h1>
-              </div>
+              
             </div>
           </div>
           <div className="row py-3">
@@ -33,9 +41,13 @@ function BuscarPokemon() {
                     const data = await response.json()
                     setPokemon(data)
                     console.log(data)
-                    document.getElementById("mostrar").className = "bg-info d-none"
                   }else{
-                      document.getElementById("mostrar").className = "bg-info"
+                      AlertPokemon("pokemon no encontrado", "info")
+                      setTimeout(()=>{
+                        var alertDiv = document.getElementById("ContainerAlert")
+                        var alertContent = new bootstrap.Alert(alertDiv)
+                        alertContent.close()
+                      },2000)
                   }
                 }}
               >
@@ -49,7 +61,7 @@ function BuscarPokemon() {
               
             </div>
          </div>
-         <TarjetaPokemon pokemon={pokemon} />
+         <TarjetaPokemon pokemon={pokemon} AlertPokemon= {AlertPokemon} />
         </div>
     )
 }

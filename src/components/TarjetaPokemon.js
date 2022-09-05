@@ -1,9 +1,10 @@
 import './SearchPokemon.css'
 import {useState} from 'react'
 import ListaPokemonesAgregados from './ListaPokemonesAgregados'
+import bootstrap from "/node_modules/bootstrap/dist/js/bootstrap.js"
 //#006360
 
-const TarjetaPokemon = ({ pokemon })=>{
+const TarjetaPokemon = ({ pokemon, AlertPokemon })=>{
     const [ListaPokemones, setListaPokemones] = useState([])
 
     const AgregarListaPokemon=({pokemon})=>{
@@ -14,8 +15,14 @@ const TarjetaPokemon = ({ pokemon })=>{
             numberPokemon: pokemon.id
         }
         if(ListaPokemones.find(x => x.numberPokemon === ListaPokemonAgregar.numberPokemon)){
-           return alert("ya tienes este pokemon en tu lista")
+        return (AlertPokemon("ya tienes este pokemon en tu lista", "warning"),
+        setTimeout(()=>{
+         var alertDiv = document.getElementById("ContainerAlert")
+         var alertContent = new bootstrap.Alert(alertDiv)
+         alertContent.close()
+        },3000))
         }
+
         setListaPokemones([...ListaPokemones,ListaPokemonAgregar])
 
     }

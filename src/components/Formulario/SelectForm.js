@@ -4,7 +4,13 @@ const SelectForm=({label, ...props})=>{
     const [field,meta]=useField(props);
     return(
         <div className="mb-3">
-            <div className="input-group col-lg-12">
+            <label htmlFor={label}>{label}</label>
+            <select className="form-select" {...field} {...props}/>
+            {meta.touched && meta.error ?
+                        <p className="h6 text-danger m-0">{meta.error}</p>
+                        :
+                        <p className="h6 text-danger m-0"></p>}
+            {/* <div className="input-group col-lg-12">
                 <div className="input-group-text col-lg-2 col-12">
                     <p className="h6 lead">{label}</p>
                 </div>
@@ -18,7 +24,7 @@ const SelectForm=({label, ...props})=>{
                         :
                         <p className="h6 text-danger m-0"></p>}
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }

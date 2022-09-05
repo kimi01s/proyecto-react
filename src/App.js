@@ -1,4 +1,5 @@
 import BuscarPokemon from './components/BuscarPokemon'
+import './App.css'
 function App() {
   
     return(

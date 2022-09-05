@@ -1,21 +1,28 @@
 const Listaobj = (values) => {
     return(
-        <div className="ps-2">
-            {values.valores.map((valor,index)=>{
-                return(
-                    <div key={index} className='row border mb-2'>
-                        <div className="col-lg-5">
-                            <p>Nombre completo: {valor.name} {valor.lastname}</p>
-                        </div>
-                        <div className="col-lg-5">
-                            <p>Email: {valor.email}</p>
-                        </div>
-                        <div className="col-lg-2">
-                            <p>Región: {valor.region}</p>
-                        </div>
-                    </div>
-                )
-            })}
+        <div className="table-responsive">
+            <table className="table">
+                <thead>
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Email</th>
+                    <th>Región</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {values.valores.map((valor,index) =>{
+                        return(
+                            <tr key={index}>
+                                <td>{valor.name}</td>
+                                <td>{valor.lastname}</td>
+                                <td>{valor.email}</td>
+                                <td>{valor.region}</td>
+                            </tr>
+                        )
+                    })}
+                </tbody>
+            </table>
         </div>
     )
 }
