@@ -8,7 +8,7 @@ class BubbleAlert extends Component {
     render(){
         const { value } = this.props;
         return(
-            <span className="badge bg-danger rounded-circle">
+            <span className="position-absolute top-100 end-50 translate-middle badge rounded-pill bg-danger">
                 {this.getNumber(value)}
             </span>
         )

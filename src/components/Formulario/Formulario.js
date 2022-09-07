@@ -50,6 +50,12 @@ const Formulario = () =>{
                    },3000)
                    )
                 }
+                AlertDuplicado("Formulario completado correctamente", "success")
+                setTimeout(()=>{
+                  var alertDiv = document.getElementById("ContainerAlert")
+                  var alertContent = new bootstrap.Alert(alertDiv)
+                  alertContent.close()
+                 },3000)
                 setLista([...lista,values])
                 resetForm()
               }}
@@ -66,9 +72,18 @@ const Formulario = () =>{
                   <TextForm name='email' label='E-mail'/>
                   <SelectForm name='region' label='Región'>
                     <option value=''>Seleccione una región</option>
-                    <option value='1'>Región 1</option>
-                    <option value='2'>Región 2</option>
-                    <option value='3'>Región 3</option>
+                    <option value='1'>I Región</option>
+                    <option value='2'>II Región</option>
+                    <option value='3'>III Región</option>
+                    <option value='4'>IV Región</option>
+                    <option value='5'>V Región</option>
+                    <option value='6'>VI Región</option>
+                    <option value='7'>VII Región</option>
+                    <option value='8'>VIII Región</option>
+                    <option value='9'>IX Región</option>
+                    <option value='10'>X Región</option>
+                    <option value='11'>XI Región</option>
+                    <option value='12'>Región Metropolitana</option>
                   </SelectForm>
                   <SendBtn/>
               </Form>

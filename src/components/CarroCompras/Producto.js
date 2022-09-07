@@ -4,22 +4,26 @@ class Producto extends Component {
     render(){
         const { producto, agregarAlCarro } = this.props;
         return(
-                <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 my-2">
-                    <div className="card position-static shadow-sm m-0 p-0 bg-white rounded text-dark bg-light">
-                        <img src={producto.img} className="img-thumbnail" alt="..."/>
-                        <div className="card-header">
-                        <h5 className="card-title">{producto.name}</h5>
-                        </div>
-                        <div className="card-body">
-                            <p className="card-text">{producto.price}</p>
-                            <button 
-                            className="btn btn-primary" 
-                            type="button"
-                            onClick={()=>agregarAlCarro(producto)}
-                            >Agregar</button>
+            <div className="col-12 col-md-4 col-lg-3 mb-3">
+                <div className="card position-static shadow-sm rounded bg-white">
+                    <img className="card-img-top img-thumbnail" alt={producto.name} src={producto.img}/>
+                    <div className="card-header">
+                        <h3 className="card-title">{producto.name}</h3>
+                    </div>
+                    <div className="card-body">
+                        <div className="card-text">
+                            <h1 className="lead">Precio: ${producto.price}</h1>
                         </div>
                     </div>
+                    <div className="card-footer">
+                        <button 
+                        className="btn btn-primary"
+                        type="button"
+                        onClick={()=>agregarAlCarro(producto)}
+                        >Agregar</button>
+                    </div>
                 </div>
+            </div>
         )
     }
 }

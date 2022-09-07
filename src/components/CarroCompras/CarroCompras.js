@@ -1,6 +1,7 @@
 import { Component } from "react";
 import Productos from '../CarroCompras/Productos'
 import NavCarro from '../CarroCompras/NavCarro'
+import './Bubble.css'
 
 class CarroCompras extends Component {
     state={
@@ -46,17 +47,21 @@ class CarroCompras extends Component {
     render(){
       const {esCarroVisible} = this.state;
       return(
-            <div className="row mt-3 me-0 ms-0">
-                
-                <NavCarro
+            <div className="container-fluid">
+                <div className="row mt-2">
+                  <NavCarro
                 carro = {this.state.carro} 
                 esCarroVisible ={esCarroVisible}
                 MostrarCarro={this.MostrarCarro}
                 />
-                <Productos 
-                    agregarAlCarro={this.agregarAlCarro}
-                    productos={this.state.productos}
-                />
+                  <div className="col-lg-12">
+                    <Productos 
+                      agregarAlCarro={this.agregarAlCarro}
+                      productos={this.state.productos}
+                      />
+                  </div>
+                </div>
+                
             </div>
       )
     }

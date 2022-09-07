@@ -8,20 +8,22 @@ class Carro extends Component {
     const {carro, esCarroVisible, MostrarCarro} = this.props;
     const cantidad = carro.reduce((acc, el)=> acc + el.cantidad, 0);
     return (
-      <div className="col-lg-1 offset-lg-10 col-1 offset-8">
-        <span className="position-relative Bubble">
-            { cantidad !== 0 
-                ? <BubbleAlert value={cantidad} />
-                : null
-            }</span>
-            
-            <button 
-            className="btn btn-success"
-            onClick={MostrarCarro}
-            >Carro</button>
-            {esCarroVisible ? <DetallesCarro carro={carro} /> : null}
+      <div className="col">
+        <button 
+          type="button" 
+          className="btn btn-success position-relative"
+          onClick={MostrarCarro}
+          >
+          Carro
+          { cantidad !== 0 
+                  ? <BubbleAlert value={cantidad} />
+                  : null
+              }
+        </button>
+        {esCarroVisible ? <DetallesCarro carro={carro} /> : null}
       </div>
-    );
+
+    )
   }
 }
-export default Carro;
+export default Carro

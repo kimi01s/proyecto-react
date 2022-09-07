@@ -6,13 +6,13 @@ class DetallesCarro extends Component{
         console.log(carro)
         return(
             <div  
-            className="bg-white text-dark mt-3 w-25 position-absolute top-40 end-0 shadow p-3 me-5 mb-5 bg-body rounded">
+            className="row bg-white text-dark mt-3 w-25 position-absolute top-40 end-0 shadow p-3 me-5 mb-5 bg-body rounded">
                 <ul className="list-group">
-                    <div className="row">
+                    <div className="col-lg-12">
                     {carro.map(x=>
                         <li key={x.name} className="list-group-item d-flex justify-content-between">
                             <div className="col-lg-7">
-                            <img alt={x.name} src={x.img} className="w-50 img-thumbnail border-0"/>
+                            <img alt="..." src={x.img} className="w-50 img-thumbnail border-0"/>
                             </div>
                             <div className="col-lg-4">
                                 <span>{x.name}</span>
