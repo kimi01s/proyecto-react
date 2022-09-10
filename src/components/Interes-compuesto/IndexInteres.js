@@ -1,86 +1,41 @@
-import { useState } from 'react'
-import Input from './InputInteres'
-import { Formik, Form } from 'formik'
-import * as Yup from 'yup'
-
-const compoundInterest=(deposit,contribution,years, rate)=>{
-    let Total = deposit;
-    for(let i=0; i<years; i++){
-        Total = (Total+contribution) * (rate + 1);
-    }
-    return Math.round(Total);
-}
-
-const formatter = new Intl.NumberFormat('en-US', {
-  style: 'currency',
-  currency: 'USD',
-  minimumFractionDigits: 2,
-  maximumFractionDigits: 2,
-})
+import Formulario from './InteresForm'
 
 function IndexInteres() {
-  const [balance, setBalance] = useState('');
-  const handleSubmit=({deposit, contribution,years,rate})=>{
-    const val = compoundInterest(Number(deposit),Number(contribution),Number(years),Number(rate));
-    setBalance(formatter.format(val));
-}
-  
   return (
-    <div className="container d-flex justify-content-center">
+    <div className="container mt-4">
         <div className="row">
-            <div className='text-center'>
-            <p className='h1'>interes compuesto</p>
+          <div className='col-12 col-md-6 bg-light shadow p-3 mb-5 bg-body rounded'>
+            <h2 className='text-center'>Formulario interés compuesto</h2>
+              <Formulario />
+          </div>
+          <div className='col-12 col-md-5 offset-md-1'>
+            <div className='row bg-light shadow p-3 mb-5 bg-body rounded'>
+              <h2>¿Qué es el interés compuesto?</h2>
+              <div className='col-12'>
+                <div className='col'>
+                <p className='lead'>El interés compuesto es calcular cuanto dinero vamos a ganar en el transcurso de los años
+                    si hacemos un depósito inicial y luego seguimos contribuyendo dinero
+                    anualmente.
+                </p>
+                <p className='lead'>
+                    1.depósito incial: déposito que se realiza la primera vez.<br/>
+                    2.depósito anual: dinero que se irá introduciendo anualmente.<br/>
+                    3.años: años durante los que se harán los depósitos anuales.<br/>
+                    4.interés estimado: es la tasa de interés que se aplicará al depósito 
+                    inicial.
+                </p>
+                </div>
+              </div>
+              <div className='col-12'>
+                <h6>Fórmula</h6>
+                <p className='lead'>Capital final = CO x (1+Ti)^t
+                <br/>
+                CO es la capital inicial, Ti la tasa del interés anual y t es el tiempo
+                que dura la inversión
+                </p>
+              </div>
             </div>
-            <div className='shadow p-3 mb-5 bg-body rounded'>
-            <Formik
-            initialValues={{
-                deposit: '',
-                contribution: '',
-                years: '',
-                rate: '',
-            }}
-            onSubmit={handleSubmit}
-            validationSchema={Yup.object({
-              deposit: Yup.number().required('Requerido').typeError('debe ser un número'),
-              contribution: Yup.number().required('Requerido').typeError('debe ser un número'),
-              years: Yup.number().required('Requerido').typeError('debe ser un número') ,
-              rate: Yup
-              .number()
-              .required('Requerido')
-              .typeError('debe ser un número')
-              .min(0, 'El valor mínimo es 0')
-              .max(1,'El valor máximo es 1'),
-            })}
-            >
-            
-                <Form>
-                    <Input 
-                    name="deposit" 
-                    label="Depósito inicial" 
-                    className="form-control"/>
-
-                    <Input 
-                    name="contribution" 
-                    label="Contribución anual" 
-                    className="form-control"/>
-
-                    <Input 
-                    name="years" 
-                    label="Años"
-                    className="form-control"/>
-
-                    <Input 
-                    name="rate" 
-                    label="Interés estimado"
-                    className="form-control"/>
-
-                    <button type="submit" className="btn btn-primary">Calcular</button>
-                </Form>
-            </Formik>
-            <div className='col-lg-4 offset-lg-8 offset-6'>
-            {balance !== '' ? <label className='h6'>Balance Final: {balance}</label> : <label></label>}
-            </div>
-            </div>
+          </div>
         </div>
     </div>
   )
