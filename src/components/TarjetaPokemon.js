@@ -1,5 +1,6 @@
 import './SearchPokemon.css'
 import {useState} from 'react'
+import PokemonBuscado from './PokemonBuscado'
 import ListaPokemonesAgregados from './ListaPokemonesAgregados'
 import bootstrap from "/node_modules/bootstrap/dist/js/bootstrap.js"
 //#006360
@@ -45,89 +46,18 @@ const TarjetaPokemon = ({ pokemon, AlertPokemon })=>{
         <div className='row py-2'>
             <div className="col-xl-4 col-lg-4 col-md-4 col-12 offset-xl-0 offset-lg-0 offset-md-3">
                 {pokemon.types[0].type.name === 'electric' ?
-                <div className="card bg-warning" style={{width:'18rem'}}>
-                    <img className="card-img-top w-50 rounded-circle img-pokemon" alt={pokemon.name}
-                    src={pokemon.sprites.front_default}/>
-                    <div className="card-body shadow rounded mx-3" style={{backgroundColor:'white'}}>
-                        <ul className="list-group align-items-center">
-                            <li className="list-group-item lead border-0">Nombre : {pokemon.name}</li>
-                            <li className="list-group-item lead border-0">Tipo : {pokemon.types[0].type.name}</li>
-                            <li className="list-group-item lead border-0">Número : {pokemon.id}</li>
-                        </ul>
-                    </div>
-                    <div className="card-footer d-grid gap-2 mt-2">
-                        <button className='btn btn-warning'
-                        onClick={()=>{AgregarListaPokemon({pokemon})}}
-                        >agregar a la lista</button>
-                    </div>
-                </div>:
+                <PokemonBuscado pokemon={pokemon} tipoPokemon="warning" AgregarListaPokemon={AgregarListaPokemon}/>:
+
                 pokemon.types[0].type.name === 'fire' ?
-                <div className="card bg-danger" style={{width:'18rem'}}>
-                    <img className="card-img-top w-50 rounded-circle img-pokemon" alt={pokemon.name}
-                    src={pokemon.sprites.front_default}/>
-                    <div className="card-body shadow rounded mx-3" style={{backgroundColor:'white'}}>
-                        <ul className="list-group align-items-center">
-                            <li className="list-group-item lead border-0">Nombre : {pokemon.name}</li>
-                            <li className="list-group-item lead border-0">Tipo : {pokemon.types[0].type.name}</li>
-                            <li className="list-group-item lead border-0">Número : {pokemon.id}</li>
-                        </ul>
-                    </div>
-                    <div className="card-footer d-grid gap-2 mt-2">
-                        <button className='btn btn-danger'
-                        onClick={()=>{AgregarListaPokemon({pokemon})}}
-                        >agregar a la lista</button>
-                    </div>
-                </div>:
+                <PokemonBuscado pokemon={pokemon} tipoPokemon="danger" AgregarListaPokemon={AgregarListaPokemon}/>:
+                
                 pokemon.types[0].type.name === 'water' ?
-                <div className="card bg-info" style={{width:'18rem'}}>
-                    <img className="card-img-top w-50 rounded-circle img-pokemon" alt={pokemon.name}
-                    src={pokemon.sprites.front_default}/>
-                    <div className="card-body shadow rounded mx-3" style={{backgroundColor:'white'}}>
-                        <ul className="list-group align-items-center">
-                            <li className="list-group-item lead border-0">Nombre : {pokemon.name}</li>
-                            <li className="list-group-item lead border-0">Tipo : {pokemon.types[0].type.name}</li>
-                            <li className="list-group-item lead border-0">Número : {pokemon.id}</li>
-                        </ul>
-                    </div>
-                    <div className="card-footer d-grid gap-2 mt-2">
-                        <button className='btn btn-info'
-                        onClick={()=>{AgregarListaPokemon({pokemon})}}
-                        >agregar a la lista</button>
-                    </div>
-                </div>:
+                <PokemonBuscado pokemon={pokemon} tipoPokemon="info" AgregarListaPokemon={AgregarListaPokemon}/>:
+                
                 pokemon.types[0].type.name === 'grass' ?
-                <div className="card bg-success" style={{width:'18rem'}}>
-                    <img className="card-img-top w-50 rounded-circle img-pokemon" alt={pokemon.name}
-                    src={pokemon.sprites.front_default}/>
-                    <div className="card-body shadow rounded mx-3" style={{backgroundColor:'white'}}>
-                        <ul className="list-group align-items-center">
-                            <li className="list-group-item lead border-0">Nombre : {pokemon.name}</li>
-                            <li className="list-group-item lead border-0">Tipo : {pokemon.types[0].type.name}</li>
-                            <li className="list-group-item lead border-0">Número : {pokemon.id}</li>
-                        </ul>
-                    </div>
-                    <div className="card-footer d-grid gap-2 mt-2">
-                        <button className='btn btn-success'
-                        onClick={()=>{AgregarListaPokemon({pokemon})}}
-                        >agregar a la lista</button>
-                    </div>
-                </div>:
-                <div className="card bg-secondary" style={{width:'18rem'}}>
-                    <img className="card-img-top w-50 rounded-circle img-pokemon" alt={pokemon.name}
-                    src={pokemon.sprites.front_default}/>
-                    <div className="card-body shadow rounded mx-3" style={{backgroundColor:'white'}}>
-                        <ul className="list-group align-items-center">
-                            <li className="list-group-item lead border-0">Nombre : {pokemon.name}</li>
-                            <li className="list-group-item lead border-0">Tipo : {pokemon.types[0].type.name}</li>
-                            <li className="list-group-item lead border-0">Número : {pokemon.id}</li>
-                        </ul>
-                    </div>
-                    <div className="card-footer d-grid gap-2 mt-2">
-                        <button className='btn btn-secondary'
-                        onClick={()=>{AgregarListaPokemon({pokemon})}}
-                        >agregar a la lista</button>
-                    </div>
-                </div>
+                <PokemonBuscado pokemon={pokemon} tipoPokemon="success" AgregarListaPokemon={AgregarListaPokemon}/>:
+                
+                <PokemonBuscado pokemon={pokemon} tipoPokemon="secondary" AgregarListaPokemon={AgregarListaPokemon}/>
             }
         </div>
             <div className="col-lg-8 col-md-12 col-12">
